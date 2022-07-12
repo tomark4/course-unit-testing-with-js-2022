@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { getUserById, getUserNameById } from "../services/users.service";
 import TestAsync from "./TestAsync";
+
 const user = {
   id: 1,
   name: "Leanne Graham",
@@ -40,8 +41,8 @@ test("check api", async () => {
 
 test("Check api response with reject error or resolve", async () => {
     // resolve
-    //await expect(getUserNameById(1)).resolves.toEqual("Leanne Graham")
+    await expect(getUserNameById(1)).resolves.toEqual("Leanne Graham")
 
     // reject
-    await expect(getUserNameById(1)).rejects.toThrow("Ocurrio un error")
+    // await expect(getUserNameById(1)).rejects.toThrow("Ocurrio un error")
 });
