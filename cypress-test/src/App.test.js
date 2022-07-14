@@ -31,7 +31,6 @@ test("calculate cuando el usuario esta por debajo del peso", () => {
 });
 
 test("calculate cuando el usuario tiene el peso normal", () => {
-  // si no encuentra el elemento la prueba
   const weightEl = screen.getByLabelText("Weight (KG)");
   const heightEl = screen.getByLabelText("Height (M)");
 
@@ -48,7 +47,6 @@ test("calculate cuando el usuario tiene el peso normal", () => {
 });
 
 test("calculate cuando el usuario tiene el peso normal", () => {
-  // si no encuentra el elemento la prueba
   const weightEl = screen.getByLabelText("Weight (KG)");
   const heightEl = screen.getByLabelText("Height (M)");
 
@@ -65,7 +63,6 @@ test("calculate cuando el usuario tiene el peso normal", () => {
 });
 
 test("calculate cuando el usuario tiene sobrepeso", () => {
-  // si no encuentra el elemento la prueba
   const weightEl = screen.getByLabelText("Weight (KG)");
   const heightEl = screen.getByLabelText("Height (M)");
 
@@ -80,7 +77,6 @@ test("calculate cuando el usuario tiene sobrepeso", () => {
 });
 
 test("calculate cuando el usuario tiene obesidad", () => {
-  // si no encuentra el elemento la prueba
   const weightEl = screen.getByLabelText("Weight (KG)");
   const heightEl = screen.getByLabelText("Height (M)");
 
