@@ -50,7 +50,10 @@ describe('user controller', () => {
     }
     updateUserById.mockReturnValue(user)
 
-    let result = await request(app).put('/users/1').send(user).expect(201)
+    let result = await request(app)
+      .put(`/users/${user.id}`)
+      .send(user)
+      .expect(201)
     expect(result.body).toEqual(data)
   })
 })
