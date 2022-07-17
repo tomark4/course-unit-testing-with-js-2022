@@ -1,5 +1,5 @@
-import express from 'express'
-import { getUserById, getUsers, storeUser } from './users-controller.js'
+const express = require('express')
+const userController = require('./users-controller')
 
 const app = express()
 
@@ -7,10 +7,12 @@ const router = express.Router()
 
 app.use(express.json())
 
-router.post('/users', storeUser)
-router.get('/users', getUsers)
-router.get('/users/:id', getUserById)
+router.post('/users', userController.store)
+router.get('/users', userController.getAll)
+router.get('/users/:id', userController.getById)
+router.put('/users/:id', userController.update)
+router.delete('/users/:id', userController.delete)
 
 app.use(router)
 
-export default app
+module.exports = app
