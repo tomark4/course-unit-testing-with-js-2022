@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import App from "./App";
-import React, { useState } from "react";
+import React from "react";
 /**
  * enfocarse en lo que el usuario ve no en la funcionalidad ni el UI/UX
  */
@@ -15,6 +15,7 @@ test("render title bmi calculator", () => {
 
 test("calculate cuando el usuario esta por debajo del peso", () => {
   // si no encuentra el elemento la prueba
+  
   const weightEl = screen.getByLabelText("Weight (KG)");
   const heightEl = screen.getByLabelText("Height (M)");
 
