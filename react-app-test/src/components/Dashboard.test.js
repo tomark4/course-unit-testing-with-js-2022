@@ -89,4 +89,12 @@ describe("Dashboard", () => {
 
     expect(await screen.findByText("Store data!")).toBeInTheDocument();
   });
+
+  test("Test form validation", async () => {
+    render(<Dashboard />);
+    expect(await screen.findByText(/products/i)).toBeInTheDocument();
+    const btn = screen.getByRole("button", { name: /enviar/i });
+    fireEvent.click(btn);
+    expect(await screen.findByText("name required")).toBeInTheDocument();
+  });
 });

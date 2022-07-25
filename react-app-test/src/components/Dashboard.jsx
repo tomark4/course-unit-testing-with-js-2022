@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { getProducts, storeTodo } from "../services/products";
 import ErrorMessage from "./ErrorMessage";
+import * as validator from "validator";
 
 const Dashboard = () => {
   const [products, setProducts] = useState([]);
@@ -11,6 +12,7 @@ const Dashboard = () => {
     name: "",
     lastName: "",
   });
+  const [errorName, setErrorName] = useState("");
 
   const [success, setSuccess] = useState("");
 
@@ -42,6 +44,11 @@ const Dashboard = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrorName("");
+    if (validator.isEmpty(values.name)) {
+      setErrorName("name required");
+      return;
+    }
     try {
       await storeTodo({
         title: values.name,
@@ -83,6 +90,7 @@ const Dashboard = () => {
                 value={values.name}
                 onChange={(e) => handleChange(e)}
               />
+              {errorName && <div className="text-danger">{errorName}</div>}
             </div>
             <div className="mb-3">
               <label htmlFor="lastName">last name</label>
@@ -101,7 +109,7 @@ const Dashboard = () => {
               </button>
             </div>
           </form>
-          <div className="alert alert-success mt-3">{success}</div>
+          {success && <div className="alert alert-success mt-3">{success}</div>}
         </div>
       </div>
     </div>
